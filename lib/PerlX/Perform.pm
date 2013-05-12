@@ -1,20 +1,34 @@
 package PerlX::Perform;
 
-use 5.010;
-use common::sense;
-use utf8;
+use 5.006;
+use strict;
 
-use Scalar::Util qw/blessed/;
-
-our @EXPORT;
+our (@EXPORT, @EXPORT_OK, %EXPORT_TAGS, @ISA);
 BEGIN {
 	$PerlX::Perform::AUTHORITY = 'cpan:TOBYINK';
-	$PerlX::Perform::VERSION   = '0.001';
+	$PerlX::Perform::VERSION   = '0.005';
 	
-	@EXPORT = qw/perform wherever/;
+	require Exporter;
+	@ISA       = qw/Exporter/;
+	@EXPORT    = qw/perform wherever/;
+	@EXPORT_OK = qw/perform wherever whenever/;
+	%EXPORT_TAGS = (
+		default   => \@EXPORT,
+		all       => \@EXPORT_OK,
+		wherever  => [qw/perform wherever/],
+		whenever  => [qw/perform whenever/],
+		);
 }
 
-use parent qw/Exporter/;
+sub blessed ($)
+{
+	my $thing = shift;
+	if (ref $thing and UNIVERSAL::can($thing, 'can'))
+	{
+		return (ref($thing) || $thing || 1);
+	}
+	return;
+}
 
 sub perform (&;$)
 {
@@ -54,19 +68,18 @@ sub wherever ($;@)
 	return $thing;
 }
 
+*whenever = \&wherever;
+
 package PerlX::Perform::Manifesto;
 
-use 5.010;
-use common::sense;
-use utf8;
-
-use Scalar::Util qw/blessed/;
+use 5.006;
+use strict;
 
 sub new
 {
 	my ($class, $code) = @_;
 	
-	if (blessed $code and $code->isa(__PACKAGE__))
+	if (PerlX::Perform::blessed $code and $code->isa(__PACKAGE__))
 	{
 		return $code;
 	}
@@ -183,6 +196,19 @@ already-blessed coderefs, this will work too:
 Both C<perform> and C<wherever> make extensive use of C<goto> in order to
 conceal their usage on the call stack.
 
+=begin private
+
+=item blessed
+
+=end private
+
+=head2 whenever
+
+This is available as an alias for C<wherever>, but is not exported by default.
+You need to request it like:
+
+ use PerlX::Perform qw/perform whenever/;
+
 =head1 BUGS
 
 Please report any bugs to
@@ -190,9 +216,9 @@ L<http://rt.cpan.org/Dist/Display.html?Queue=PerlX-Perform>.
 
 =head1 SEE ALSO
 
-I can't see any similar modules on CPAN to link to here.
+L<http://www.modernperlbooks.com/mt/2012/02/a-practical-use-for-macros-in-perl.html>.
 
-That probably means that this one was a bad idea too.
+L<Scalar::Andand>.
 
 =head1 AUTHOR
 

@@ -14,7 +14,7 @@
 	:homepage       <https://metacpan.org/release/PerlX-Perform> ;
 	:download-page  <https://metacpan.org/release/PerlX-Perform> ;
 	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=PerlX-Perform> ;
-	:repository     [ a :HgRepository ; :browse <https://bitbucket.org/tobyink/p5-perlx-perform> ] ;
+	:repository     [ a :GitRepository ; :browse <https://github.com/tobyink/p5-perlx-perform> ] ;
 	:created        "2012-02-06"^^xsd:date ;
 	:license        <http://dev.perl.org/licenses/> ;
 	:developer      [ a foaf:Person ; foaf:name "Toby Inkster" ; foaf:mbox <mailto:tobyink@cpan.org> ] .

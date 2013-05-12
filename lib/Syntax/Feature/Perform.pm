@@ -1,10 +1,13 @@
 package Syntax::Feature::Perform;
 
-use 5.010;
-use common::sense;
-use utf8;
+use 5.006;
+use strict qw(vars subs);
+use PerlX::Perform qw();
 
-use PerlX::Perform qw//;
+BEGIN {
+	$Syntax::Feature::Perform::AUTHORITY = 'cpan:TOBYINK';
+	$Syntax::Feature::Perform::VERSION   = '0.005';
+}
 
 sub install
 {
@@ -13,7 +16,6 @@ sub install
 	
 	foreach my $f (qw/perform wherever/)
 	{
-		no strict 'refs';
 		*{"$into\::$f"} = \&{"PerlX::Perform::$f"};
 	}
 }

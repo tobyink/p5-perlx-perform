@@ -15,3 +15,37 @@ dist:v_0-001
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/PerlX-Perform-0.001.tar.gz> ;
 	rdfs:label      "Initial release" .
 
+dist:project :release dist:v_0-003 .
+dist:v_0-003
+	a               :Version ;
+	dc:issued       "2012-02-27"^^xsd:date ;
+	:revision       "0.003"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/PerlX-Perform-0.003.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-001;
+		dcs:item   [ rdfs:label "Reduce dependencies. No longer require 'common::sense', 'parent', 'Scalar::Util' or 'utf8', but do require 'strict'. No longer require Perl 5.10, but require Perl 5.6."@en ];
+		].
+
+dist:project :release dist:v_0-004 .
+dist:v_0-004
+	a               :Version ;
+	dc:issued       "2012-03-05"^^xsd:date ;
+	:revision       "0.004"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/PerlX-Perform-0.004.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-003;
+		dcs:item   [ rdfs:label "See Also links"@en ; a dcs:Bugfix,dcs:Documentation ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/75022> ];
+		dcs:item   [ rdfs:label "Add 'whenever' as an alias for 'wherever'."@en ; a dcs:Addition ];
+		dcs:item   [ rdfs:label "%EXPORT_TAGS now has tags :default, :all, :wherever and :whenever."@en ]
+		].
+
+dist:project :release dist:v_0-005 .
+dist:v_0-005
+	a               :Version ;
+	dc:issued       "2012-03-05"^^xsd:date ;
+	:revision       "0.005"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/PerlX-Perform-0.005.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-004;
+		dcs:item   [ rdfs:label "Remove space incorrectly included in a POD L<...> link."@en ; a dcs:Bugfix,dcs:Documentation ];
+		].
