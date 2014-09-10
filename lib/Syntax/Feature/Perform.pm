@@ -6,7 +6,7 @@ use PerlX::Perform qw();
 
 BEGIN {
 	$Syntax::Feature::Perform::AUTHORITY = 'cpan:TOBYINK';
-	$Syntax::Feature::Perform::VERSION   = '0.005';
+	$Syntax::Feature::Perform::VERSION   = '0.006';
 }
 
 sub install

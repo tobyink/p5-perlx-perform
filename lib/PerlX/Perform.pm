@@ -6,7 +6,7 @@ use strict;
 our (@EXPORT, @EXPORT_OK, %EXPORT_TAGS, @ISA);
 BEGIN {
 	$PerlX::Perform::AUTHORITY = 'cpan:TOBYINK';
-	$PerlX::Perform::VERSION   = '0.005';
+	$PerlX::Perform::VERSION   = '0.006';
 	
 	require Exporter;
 	@ISA       = qw/Exporter/;

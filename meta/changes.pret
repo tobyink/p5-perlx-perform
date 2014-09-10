@@ -49,3 +49,10 @@ dist:v_0-005
 		dcs:versus dist:v_0-004;
 		dcs:item   [ rdfs:label "Remove space incorrectly included in a POD L<...> link."@en ; a dcs:Bugfix,dcs:Documentation ];
 		].
+
+`PerlX-Perform 0.006 cpan:TOBYINK`
+	issued    2014-09-10;
+	changeset [
+		item "Switch to Dist::Inkt."^^Packaging;
+	].
+
